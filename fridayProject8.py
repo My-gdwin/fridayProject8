@@ -10,6 +10,7 @@ root = tk.Tk()
 style = ttk.Style(root)
 style.theme_use("clam")
 
+#Create database and table
 cursor.execute('''
 CREATE TABLE IF NOT EXISTS feedbackTable (
     name BLOB NOT NULL,
