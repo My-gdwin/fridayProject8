@@ -6,7 +6,6 @@ from tkinter import messagebox
 connection = sqlite3.connect('feedback.db')
 cursor = connection.cursor()
 root = tk.Tk()
-databaseLocked = True
 
 style = ttk.Style(root)
 style.theme_use("clam")
@@ -78,14 +77,16 @@ class FeedbackApp:
         # Show confirmation message
         messagebox.showinfo("Feedback Submitted", "Thank you for your feedback!")
     def view_database(self):
-        try:
-            cursor.execute('SELECT * FROM feedbackTable')
+        passwordAttempt = input('Please enter the database password: ')
+        if passwordAttempt == 'password':
+            try:
+                cursor.execute('SELECT * FROM feedbackTable')
 
-            data = cursor.fetchall()
+                data = cursor.fetchall()
 
-            print(data)
-        except sqlite3.Error as e:
-            print(f"Database error: {e}")
+                print(data)
+            except sqlite3.Error as e:
+                print(f"Database error: {e}")
       
 if __name__ == "__main__":
     app = FeedbackApp(root)
