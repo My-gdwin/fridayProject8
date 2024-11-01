@@ -1,7 +1,7 @@
 # fridayProject8 
 passowrd = password
 
-Overview
+Overview:
 The FeedbackApp is a graphical user interface (GUI) application built with Python's tkinter library, which allows users to submit customer feedback including their name, email, and feedback text. The application stores this information in an SQLite database (feedback.db) for easy retrieval and review.
 
 Prerequisites
